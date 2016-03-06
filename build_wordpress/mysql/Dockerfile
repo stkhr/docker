@@ -1,0 +1,16 @@
+# Dockerfile for mysqld Application
+
+From centos:centos6.7
+MAINTAINER stkhr
+
+ENV DB wordpress
+ENV DB_USER wordpress
+ENV DB_PASS wp4mysql
+
+RUN /bin/cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+RUN yum -y install mysql-server mysql mysql-devel
+ADD create_mysql.sh /usr/local/bin/create_mysql.sh
+RUN chmod u+x /usr/local/bin/create_mysql.sh && /usr/local/bin/create_mysql.sh
+ADD init.sh /usr/local/bin/init.sh
+RUN chmod u+x /usr/local/bin/init.sh
+CMD ["/usr/local/bin/init.sh"]
