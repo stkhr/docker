@@ -17,6 +17,7 @@ ADD php.ini /etc/php.inils
 ADD www.conf /etc/php-fpm.d/www.conf
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD default.conf /etc/nginx/conf.d/default.conf
+RUN htpasswd -c -b /etc/nginx/conf.d/.htpasswd username password
 ADD create_wp.sh /usr/local/bin/create_wp.sh
 RUN chmod u+x /usr/local/bin/create_wp.sh && /usr/local/bin/create_wp.sh
 

@@ -1,8 +1,7 @@
 #!/bin/bash
 
 #initialize
-mysql_ver=1.0
-wordpress_ver=1.0
+. ./version.txt
 
 #build
 docker build -t stkhr/mysql:ver${mysql_ver} ./mysql
