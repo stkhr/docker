@@ -8,7 +8,9 @@ ENV DB_USER wordpress
 ENV DB_PASS wp4mysql
 
 RUN /bin/cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+RUN yum -y install http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
 RUN yum -y install mysql-server mysql mysql-devel
+ADD my.cnf /etc/my.cnf
 ADD create_mysql.sh /usr/local/bin/create_mysql.sh
 RUN chmod u+x /usr/local/bin/create_mysql.sh && /usr/local/bin/create_mysql.sh
 ADD init.sh /usr/local/bin/init.sh
