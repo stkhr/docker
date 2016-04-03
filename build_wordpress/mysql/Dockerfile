@@ -13,6 +13,8 @@ RUN yum -y install mysql-server mysql mysql-devel
 ADD my.cnf /etc/my.cnf
 ADD create_mysql.sh /usr/local/bin/create_mysql.sh
 RUN chmod u+x /usr/local/bin/create_mysql.sh && /usr/local/bin/create_mysql.sh
+RUN ln -sf /dev/stderr /var/log/mysqld.log
+
 ADD init.sh /usr/local/bin/init.sh
 RUN chmod u+x /usr/local/bin/init.sh
 CMD ["/usr/local/bin/init.sh"]
