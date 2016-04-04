@@ -20,9 +20,10 @@ ADD default.conf /etc/nginx/conf.d/default.conf
 RUN htpasswd -c -b /etc/nginx/conf.d/.htpasswd username password
 ADD create_wp.sh /usr/local/bin/create_wp.sh
 RUN chmod u+x /usr/local/bin/create_wp.sh && /usr/local/bin/create_wp.sh
-RUN ln -sf /dev/stdout /var/log/nginx/access.log
-RUN ln -sf /dev/stderr /var/log/nginx/error.log
-RUN ln -sf /dev/stderr /var/log/php-fpm/error.log
+## For log driver
+#RUN ln -sf /dev/stdout /var/log/nginx/access.log
+#RUN ln -sf /dev/stderr /var/log/nginx/error.log
+#RUN ln -sf /dev/stderr /var/log/php-fpm/error.log
 
 ADD init.sh /usr/local/bin/init.sh
 RUN chmod u+x /usr/local/bin/init.sh
