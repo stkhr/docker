@@ -1,4 +1,8 @@
-#!/bin/bash -x
+#!/bin/bash
+
+DB="wordpress"
+DB_USER="wordpress"
+DB_PASS='mysql4pass'
 
 # mysql setting
 service mysqld start

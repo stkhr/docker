@@ -1,6 +1,6 @@
 #!/bin/bash
-service php-fpm start
 service nginx start
+service php-fpm start
 
 cat <<EOF >> ~/.bashrc
 trap 'service nginx stop; sleep 3; exit 0' TERM

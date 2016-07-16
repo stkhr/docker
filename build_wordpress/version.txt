@@ -1,2 +1,0 @@
-mysql_ver=1.0
-wordpress_ver=1.0

@@ -1,0 +1,35 @@
+## For Proxy
+web:
+  container_name: nginx01
+  build: ./build_nginx
+  ports:
+    - "80:80"
+    - "443:443"
+#  volumes:
+#    - "/var/log/docker/wordpress01:/var/log"
+  mem_limit: 512m
+  links:
+    - wordpress
+    - wordpress:wordpress01
+  tty: true
+
+## For wordpress
+db:
+  container_name: mysql01
+  build: ./build_mysql
+#  ports:
+#    - "3306:3306"
+#  volumes:
+#    - "/var/log/docker/mysql01:/var/log"
+  mem_limit: 1024m
+  tty: true
+wordpress:
+  container_name: wordpress01
+  build: ./build_wordpress
+#  ports:
+#    - "8080:80"
+  tty: true
+  mem_limit: 512m
+  links:
+    - db
+    - db:mysql01
