@@ -28,6 +28,8 @@ wordpress:
   build: ./build_wordpress
 #  ports:
 #    - "8080:80"
+#  volumes:
+#    - "/var/log/docker/wordpress01:/var/log"
   tty: true
   mem_limit: 512m
   links:
