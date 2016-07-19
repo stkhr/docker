@@ -5,8 +5,8 @@ web:
   ports:
     - "80:80"
     - "443:443"
-  volumes:
-    - "/Users/shinichi/Documents/99_develop/01_docker/local_vol/nginx01:/var/docker/"
+#  volumes:
+#    - "/var/log/docker/wordpress01:/var/log"
   mem_limit: 512m
   links:
     - wordpress
@@ -19,8 +19,8 @@ db:
   build: ./build_mysql
 #  ports:
 #    - "3306:3306"
-  volumes:
-    - "/Users/shinichi/Documents/99_develop/01_docker/local_vol/mysql01:/var/docker/"
+#  volumes:
+#    - "/var/log/docker/mysql01:/var/log"
   mem_limit: 1024m
   tty: true
 wordpress:
@@ -28,8 +28,6 @@ wordpress:
   build: ./build_wordpress
 #  ports:
 #    - "8080:80"
-  volumes:
-    - "/Users/shinichi/Documents/99_develop/01_docker/local_vol/wordpress01:/var/docker/"
   tty: true
   mem_limit: 512m
   links:

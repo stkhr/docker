@@ -2,3 +2,4 @@
 /build_wordpress/create_htpasswd.sh
 /build_wordpress/contents/wordpress/*
 /build_mysql/create_mysql.sh
+/docker-compose.yml
